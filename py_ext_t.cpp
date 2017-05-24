@@ -88,6 +88,24 @@ static PyObject* fun_param_2(PyObject *self, PyObject *args)
 				printf("\n");
 			}
 		}
+		printf("\n");
+
+		ref_obj = Py_BuildValue("is", PY_OK, "success.");
+	}
+
+	return ref_obj;
+}
+
+//字符串参数
+static PyObject* fun_param_str(PyObject *self, PyObject *args)
+{
+	INT n;
+	PyObject *ref_obj = NULL;
+	Py_buffer tmp;
+
+	if (PyArg_ParseTuple(args, "is", &n, &tmp)) //2 argument
+	{
+		printf("fun_param_str():\nn = %d, %s\n", n, (char *)tmp.buf);
 
 		ref_obj = Py_BuildValue("is", PY_OK, "success.");
 	}
@@ -99,6 +117,7 @@ static PyMethodDef py_ext_t_method[] = {
 	{ "fun_param_0", fun_param_0, METH_VARARGS, "fun_param_0" },
 	{ "fun_param_1", fun_param_1, METH_VARARGS, "fun_param_1" },
 	{ "fun_param_2", fun_param_2, METH_VARARGS, "fun_param_2" },
+	{ "fun_param_str", fun_param_str, METH_VARARGS, "fun_param_str" },
 	{ NULL, NULL, 0, NULL } //end of table marker
 };
 
