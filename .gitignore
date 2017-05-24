@@ -1,0 +1,16 @@
+
+*.db
+*.opendb
+*.pch
+*.tlog
+*.obj
+*.idb
+*.log
+*.pdb
+*.exp
+*.iobj
+*.lib
+*.pyd
+*.ipdb
+*.ipch
+.vs/py_ext_t/v15/.suo

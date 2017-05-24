@@ -78,7 +78,7 @@ static PyObject* fun_param_2(PyObject *self, PyObject *args)
 
 	if (PyArg_ParseTuple(args, "iy*", &n, &tmp)) //2 argument
 	{
-		printf("n = %d\n", n);
+		printf("fun_param_2():n = %d\n", n);
 
 		for (i = 0; i < tmp.len; ++i)
 		{
@@ -105,9 +105,13 @@ static PyObject* fun_param_str(PyObject *self, PyObject *args)
 
 	if (PyArg_ParseTuple(args, "is", &n, &tmp)) //2 argument
 	{
-		printf("fun_param_str():\nn = %d, %s\n", n, (char *)tmp.buf);
+		printf("fun_param_str():n = %d, %s\n", n, (char *)tmp.buf);
 
-		ref_obj = Py_BuildValue("is", PY_OK, "success.");
+		ref_obj = Py_BuildValue("iy", PY_OK, "success."); //成功
+	}
+	else
+	{
+		ref_obj = Py_BuildValue("iy", PY_ERROR, "failed.");
 	}
 
 	return ref_obj;
