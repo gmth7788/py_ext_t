@@ -4,6 +4,10 @@
 #include "stdafx.h"
 #include "Python.h"
 
+//
+//编译说明：Release，x64
+//
+
 #define PY_OK  0
 #define PY_ERROR  -1
 
